@@ -25,6 +25,8 @@ If that sounds painfully obvious, that's just because these data systems are suc
 - 값비싼 계산의 결과들을 *기록해둔다*. 읽기 성능을 올리는게 목적이다. (캐시의 역할)
 - 유저들이 데이터를 검색할 수 있게 한다. (검색 인덱스의 역할)
 - 메시지를 다른 곳에 보낸다. 비동기적으로 작동한다. (stream processing)  
+
+  
 이 모든 것들이 당연하게 들린다면, 그건 당연하기 때문이 아니라 데이터 시스템들이 성공적으로 추상화가 됐기 대문이다.
 
 -> 공감한다. 백엔드 개발자들이 하는 일을 잘 설명한 것 같다!
