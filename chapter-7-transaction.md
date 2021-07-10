@@ -49,7 +49,7 @@ Consistency는 트랜잭션만으로 보장되는 것이 아니기 때문에, AC
 예로 들어 두 개의 테이블을 업데이트하는 하나의 트랜잭션이 끝나지 않은 시각에서, 다른 트랜잭션은 하나의 테이블 업데이트 반영분만 읽는 상황이다.  
 두 테이블 간에 논리적 관계가 있는 경우, 사용자에게 혼란을 줄 수 있어 문제가 된다. 
 
-### read skew
+#### read skew
 한 트랜잭션이 다른 트랜잭션의 완료된 변경사항을 읽을 수 있는 상황이다. 
 모든 상황에서 문제가 되는 것은 아니며, 특정 상황에서 문제가 된다.
 예로 들어 디비 백업을 하는 동시에 트랜잭션 A를 반영한다고 할 때, 특정 row는 트랜잭션 A가 적용되기 이전의 버전으로, 특정 row는 트랜잭션 A가 적용되기 이후의 버전으로 백업이 될 수 있어, 데이터 정합성에 무제가 생길 수 있다.
@@ -73,7 +73,7 @@ lost update, dirty write를 모두 포함하는 개념이다.
 
 isolation 방식에 따라 위 문제들 일부 또는 전부를 해결할 수 있다.
 
-### isolation
+## isolation
 isolation은 진행 시간대를 공유하는 트랜잭션들을 이슈없이 처리하기 위한 전략이다.
 isolation 종류에 따라 트랜잭션 동시성 이슈 일부 또는 전체를 예방할 수 있다.
 islation 종류로 read committed, snapshot islation, two phase locking, serializable snapshot isolation을 정리한다.
