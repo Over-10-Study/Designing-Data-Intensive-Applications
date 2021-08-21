@@ -40,7 +40,7 @@ Linearizability를 보장하기 위해 Consensus 알고리즘을 활용할 수 �
 
 둘째, 정말로 Linearizability를 보장해야 할 경우에는, multiple writer 구성을 포기한다.
 따라서 엄격한 Linearizability를 보장해야 하는 경우 Elaticsearch나 dynamoDB를 사용하지 않는다.
-RDS로 single writer를 구성한다.
+RDS로 single writer를 구성한다.  
 빈 좌석을 예약하는 경우에는, 결제 관련 서비스이므로 오류가 일어나지 않도록 정밀하게 해야할 것이다. 
 이런 경우에는, single writer로 구성하여, 예약 관련 서비스가 읽기/쓰기를 무조건 writer에서 하도록 구성한다.
 그렇게 하여 무조건 최신 데이터 기반으로 예약을 진행하도록 한다.
