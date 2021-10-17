@@ -14,8 +14,18 @@ consumer: event 처리자
 topic(stream): event의 그룹  
 message broker: 메시지 스트림을 처리하는 데이터베이스  
 
+### stream processing에서 고려해야할 문제
+stream processing 구조에서 고려해야할 상황들이 있다.
+1. consumer가 처리할 수 있는 속도 이상으로 producer가 이벤트를 전송하는 경우:  
+backpressure가 필요하다. backpressure는 producer가 이벤트를 일정 속도 이상으로 보내는 것을 막는 제어기를 의미한다.
+2. 이벤트가 유실될 경우:  
+네트워크 유실, consumer 노드의 다운 등의 상황에서 이벤트가 유실될 수 있다.
+message broker에서 이벤트들을 로그 형태로 쌓는다면, consumer에서 특정 위치의 이벤트 로그부터 수신받는 형식으로
+이벤트 유실 상황에 대비할 수 있다.(consumer가 유실된 이벤트 로그 offset부터 이벤트를 발송하도록 message broker에게 요청할 수 있다) 
+
+
 ## 느낀점
-회사에서 이벤트 시스템을 적극적으로 사용한다. 
+회사에서 이벤트 시스템(stream processing)을 적극적으로 사용한다.(책에서 말하는 stream processing과, 실무에서 쓰이는 용어 '이벤트 시스템'은 같은 의미라고 생각한다.)
 이벤트 시스템은 팀별로 독립적인 시스템을 구축하는 데 큰 도움이 됐다.
 회원 팀과 예약 팀이 이전에는 하나의 디비로 묶여있는 구조였다면,
 회원 팀과 예약 팀이 서로 다른 디비를 사용하고 API/이벤트로 서로 시스템이 소통하도록 바뀌었다.
